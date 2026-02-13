@@ -1,0 +1,42 @@
+{
+  "name": "create-railnode-app",
+  "version": "1.0.0",
+  "description": "Create a new Railnode app (scaffold).",
+  "license": "ISC",
+  "author": "Shishir Shekhar",
+  "type": "module",
+  "bin": {
+    "create-railnode-app": "./bin/create-railnode-app.js"
+  },
+  "files": [
+    "bin"
+  ],
+  "scripts": {
+    "prepack": "node ./scripts/prepack.cjs",
+    "postpack": "node ./scripts/postpack.cjs"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "railnode": "file:../.."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShishirShekhar/Railnode.git",
+    "directory": "packages/create-railnode-app"
+  },
+  "bugs": {
+    "url": "https://github.com/ShishirShekhar/Railnode/issues"
+  },
+  "homepage": "https://github.com/ShishirShekhar/Railnode#readme",
+  "keywords": [
+    "railnode",
+    "create-railnode-app",
+    "scaffold",
+    "cli"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,4 @@
+* text=auto eol=lf
+
+# Keep lockfiles stable across platforms
+package-lock.json text eol=lf

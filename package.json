@@ -1,0 +1,90 @@
+{
+  "name": "railnode",
+  "version": "1.0.0",
+  "description": "A minimal, model-driven backend framework built on Express (ESM + TypeScript).",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShishirShekhar/Railnode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ShishirShekhar/Railnode/issues"
+  },
+  "homepage": "https://github.com/ShishirShekhar/Railnode#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "keywords": [
+    "backend",
+    "framework",
+    "express",
+    "typescript",
+    "esm",
+    "crud",
+    "api",
+    "router",
+    "cli"
+  ],
+  "private": false,
+  "license": "ISC",
+  "author": "Shishir Shekhar",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./cli": {
+      "default": "./dist/cli.js"
+    },
+    "./create-app": {
+      "default": "./dist/create-app.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "railnode": "./dist/cli.js",
+    "create-railnode-app": "./dist/create-app.js",
+    "backend-framework": "./dist/cli.js",
+    "create-app": "./dist/create-app.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx watch src/demo.ts",
+    "dev:cli": "node --no-warnings --import tsx src/cli.ts",
+    "dev:create-app": "node --no-warnings --import tsx src/create-app.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepack": "npm run clean && npm run build",
+    "test": "npm run lint && npm run typecheck"
+  },
+  "dependencies": {
+    "commander": "^14.0.1",
+    "express": "^5.2.1",
+    "mongodb": "^7.1.0",
+    "pg": "^8.18.0",
+    "tsx": "^4.21.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.2.3",
+    "@types/pg": "^8.16.0",
+    "eslint": "^9.20.0",
+    "globals": "^15.14.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.24.0"
+  }
+}
